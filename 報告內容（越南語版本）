@@ -1,0 +1,122 @@
+ĐỘNG CƠ NGHIÊN CỨU(Research Motivation):
+
+- Tôi lựa chọn đề tài này vì định hướng phát triển bản thân trong tương lai là làm ứng dụng (app development).
+- Việc phân tích thị trường ứng dụng giúp tôi hiểu rõ xu hướng, nhu cầu người dùng và các yếu tố tạo nên ứng dụng thành công.
+- Đồng thời, đây cũng là cơ hội để tôi làm quen và rèn luyện kỹ năng phân tích dữ liệu bằng Python.
+
+II. CÂU HỎI NGHIÊN CỨU (Research Questions):
+
+Nghiên cứu tập trung vào các câu hỏi sau:
+
+1.Nhóm ứng dụng (Category) nào được ưa chuộng nhất?
+2.Loại ứng dụng nào có lượt tải (Installs) cao nhất?
+3.Ứng dụng thành công thường có đặc điểm gì?
+Rating (đánh giá)
+Reviews (số lượt đánh giá)
+Price (giá)
+Type (miễn phí hay trả phí)
+Size (kích thước ứng dụng)
+4.Hành vi người dùng có ảnh hưởng đến sự thành công của ứng dụng không?
+Rating có ảnh hưởng đến lượt tải không?
+Reviews có ảnh hưởng đến độ tin cậy không?
+5.Xu hướng phát triển của thị trường ứng dụng trong tương lai là gì?
+
+
+
+III. PHƯƠNG PHÁP NGHIÊN CỨU (Research Methodology):
+Nghiên cứu sử dụng phương pháp phân tích dữ liệu (Data Analysis), bao gồm các bước:
+
+1. Nguồn dữ liệu:
+Sử dụng bộ dữ liệu ứng dụng từ Kaggle
+2. Công cụ phân tích
+Pandas (xử lý dữ liệu)
+NumPy (phân tích số liệu)
+
+3.Phương pháp phân tích:
+Trước tiên, tôi thực hiện tổng hợp theo danh mục (Category) để có cái nhìn tổng quan về thị trường ứng dụng.
+Cụ thể, tôi tính toán các giá trị trung bình cho từng Category bao gồm:
+
+Rating (đánh giá trung bình)
+Installs (lượt tải trung bình)
+Reviews (số lượt đánh giá trung bình)
+Size (kích thước ứng dụng trung bình)
+Price (giá trung bình)
+
+Sau khi có kết quả tổng hợp, tôi tiến hành:
+
+So sánh giữa các Category để xác định nhóm phổ biến nhất
+Phân tích sâu từng nhóm nổi bật (ví dụ: GAME, TOOLS, COMMUNICATION)
+Xác định mối quan hệ giữa rating, reviews và installs để tìm ra yếu tố ảnh hưởng đến ứng dụng thành công
+
+(Cụ thể hóa) Phân tích mối quan hệ
+
+Sau khi tổng hợp dữ liệu theo Category, tôi tiếp tục phân tích mối quan hệ giữa các biến quan trọng gồm Rating, Reviews và Installs nhằm xác định yếu tố ảnh hưởng đến sự thành công của ứng dụng.
+
+Cụ thể:
+1.Tôi kiểm tra mối quan hệ giữa Reviews và Installs để xem liệu ứng dụng có nhiều đánh giá hơn thì có xu hướng được tải nhiều hơn hay không.
+Có 3 nhóm chính:
+
+🔥 Rất cao (≥0.85): Reviews phản ánh gần như trực tiếp Installs
+⚖️ Trung bình (0.5–0.85): có liên quan nhưng không quyết định
+❄️ Thấp (≤0.5): Installs phụ thuộc yếu tố khác
+
+Mối tương quan giữa Reviews và Installs thay đổi theo từng danh mục. Một số nhóm như Education, Maps & Navigation và Weather có tương quan rất mạnh,
+cho thấy đánh giá người dùng phản ánh rõ số lượt tải. Ngược lại, các nhóm như Finance, Health & Fitness và Books & Reference có tương quan yếu hơn,
+nghĩa là lượt tải phụ thuộc nhiều vào nhu cầu và chức năng hơn là đánh giá. Nhìn chung, Reviews chỉ là yếu tố dự đoán tốt cho Installs ở một số loại ứng dụng nhất định.
+
+2.Tôi phân tích mối quan hệ giữa Rating và Installs để xác định liệu ứng dụng có điểm đánh giá cao có thu hút nhiều người dùng hơn không.
+🧠 Mốc phân tích:
+🔥 ≥ 0.7 (mạnh)
+Rating có ảnh hưởng rõ đến Installs
+⚖️ 0.3 – 0.7 (trung bình)
+có ảnh hưởng nhưng không quyết định
+❄️ < 0.3 (yếu)
+Installs không phụ thuộc Rating
+
+3.Tôi kết hợp cả ba yếu tố (Rating – Reviews – Installs) để xác định đặc điểm chung của các ứng dụng thành công.
+
+👉 Mục tiêu là tìm ra:
+Yếu tố nào ảnh hưởng mạnh nhất đến lượt tải
+Ứng dụng thành công thường có đặc điểm gì về đánh giá và độ phổ biến
+Mối quan hệ giữa “độ tin cậy (Reviews)” và “chất lượng (Rating)” với “hiệu suất (Installs)”
+
+
+
+
+
+
+
+
+📈 IV. KẾT LUẬN (Conclusion)
+
+Từ kết quả phân tích dữ liệu, có thể rút ra các kết luận sau:
+
+Nhóm ứng dụng phổ biến nhất
+GAME, TOOLS, COMMUNICATION và EDUCATION là các nhóm phổ biến nhất
+→ Người dùng thích ứng dụng giải trí và ứng dụng tiện ích
+Đặc điểm của ứng dụng thành công
+Phần lớn là ứng dụng miễn phí
+Rating thường trên 4.2
+Reviews càng nhiều thì lượt tải càng cao
+Nhóm Tools và Communication phát triển nhanh nhất
+Hành vi người dùng
+Người dùng thường tải ứng dụng có nhiều đánh giá và độ tin cậy cao
+Rating và Reviews có mối quan hệ tích cực với lượt tải
+Xu hướng thị trường
+Ứng dụng miễn phí đang chiếm ưu thế
+Ứng dụng tiện ích và giao tiếp có nhu cầu cao
+Ứng dụng đơn giản, dễ sử dụng dễ thành công hơn
+AI và giáo dục là lĩnh vực có tiềm năng phát triển mạnh
+
+
+💡 V. CHIA SẺ / CẢM NHẬN (Reflection) (HOÀN THÀNH BÀI BÁO CÁO ĐỂ SỬA LẠI )
+
+Thông qua nghiên cứu phân tích dữ liệu này, tôi đã học được cách sử dụng Python để xử lý và phân tích dữ liệu, đồng thời hiểu rõ hơn về thị trường ứng dụng.
+
+Tôi nhận thấy rằng:
+
+Ứng dụng thành công không nhất thiết phải phức tạp, mà quan trọng là “hữu ích và dễ sử dụng”
+Người dùng rất coi trọng đánh giá và bình luận
+Mô hình miễn phí có lợi thế lớn trên thị trường
+
+Nghiên cứu này giúp tôi định hướng rõ hơn về phát triển phần mềm trong tương lai và tăng sự hứng thú với lĩnh vực phân tích dữ liệu.

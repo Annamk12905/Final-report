@@ -1,0 +1,70 @@
+import pandas as pd
+
+
+#đọc dữ liệu và đưa vào python
+df = pd.read_csv("googleplaystore.csv")
+
+#làm sạch dữ liệu cột Installs                                      #to_numeric là hàm của pandas dùng để chuyển dữ liệu sang kiểu số (number)
+df["Installs"] = df["Installs"].str.replace("+", "")               # xóa dấu + trong dữ liệu
+df["Installs"] = df["Installs"].str.replace(",", "")               #xóa dấu phẩy trong dữ liệu
+df["Installs"] = pd.to_numeric(df["Installs"], errors="coerce")    #nếu không chuyển được thì chuyển thành NaN
+df["Installs"] = df["Installs"].fillna(0)                          # đưa dữ liệu NaN về 0
+
+#làm sạch dữ liệu cột price
+df["Price"] = df["Price"].str.replace("$", "")
+df["Price"]=pd.to_numeric(df["Price"], errors="coerce")
+df["Price"] =df["Price"].fillna(0)
+
+#xử lý dữ liệu size
+df["Size"] = df["Size"].str.replace("M", "")
+df["Size"] = df["Size"].str.replace("k", "")
+df["Size"]=pd.to_numeric(df["Size"], errors="coerce")
+#df["Size"]=df["Size"].fillna(0)
+
+# xử lý rating,Review
+df["Rating"]=pd.to_numeric(df["Rating"], errors="coerce")
+#df["Rating"]=df["Rating"].fillna(0)
+df["Reviews"]=pd.to_numeric(df["Reviews"], errors="coerce")
+#df["Reviews"]=df["Reviews"].fillna(0)
+# Kiểm tra lại dữ liệu
+#print(df["Price"])
+#print(df["Installs"])
+#print(df["Size"])
+
+#xóa dòng có dữ liệu NaN
+df = df.dropna(subset=["Category", "Rating", "Reviews", "Installs", "Price"])
+# Bắt đầu phân tích dữ liệu (tổng hợp Category)
+data_Category=df.groupby("Category").agg({
+    "Installs":"mean",
+    "Rating":"mean",
+    "Reviews":"mean",
+    "Size":"mean",
+    "Price":"mean"
+}).round(2)
+
+data_Category.to_csv("Overview_of_the_application_market_data.csv")
+
+#kiểm tra dữ liệu
+#print(data_Category)
+
+
+
+
+
+result=[]  #Lặp qua từng cột ["Installs", "Rating", "Reviews", "Size", "Price"] trong data_Category
+for col in data_Category.columns:
+
+        top_category = data_Category[col].idxmax()                   #tìm tên hàng (Category) có giá trị lớn nhất
+        top_value = data_Category[col].max()                         #lấy giá trị lớn nhất trong cột
+        result.append([col,top_category, top_value])
+
+df_result = pd.DataFrame(result, columns=["指標", "最高類別", "最大值"])
+df_result.to_csv("top_category_result.csv", index=False, encoding="utf-8-sig")
+
+
+#PHÂN TÍCH MỐI QUAN HỆ Reviews và Installs
+corr_by_category = df.groupby("Category")[["Reviews", "Installs"]].corr().iloc[0::2, -1].round(2)
+corr_by_category.to_csv("Correlation_Reviews_Installs.csv", index=True, encoding="utf-8-sig")
+# Rating và Installs
+corr_by_category = df.groupby("Category")[["Rating", "Installs"]].corr().iloc[0::2, -1].round(2)
+corr_by_category.to_csv("Correlation_Rating_Installs.csv", index=True, encoding="utf-8-sig")
