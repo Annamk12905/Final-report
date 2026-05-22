@@ -74,12 +74,165 @@ có ảnh hưởng nhưng không quyết định
 Installs không phụ thuộc Rating
 
 3.Tôi kết hợp cả ba yếu tố (Rating – Reviews – Installs) để xác định đặc điểm chung của các ứng dụng thành công.
+Bạn có thể giải thích trong bài như sau:
+
+SOCIAL và COMMUNICATION có lượng Reviews và Installs cực cao
+dù Rating không phải cao nhất
+nhưng do nhiều người dùng nên Success rất lớn
+
+Trong khi:
+
+EVENTS có Rating rất cao (4.44)
+nhưng Reviews và Installs thấp
+nên Success thấp
+
+=> Điều này cho thấy:
+
+Ứng dụng thành công không chỉ cần Rating cao, mà còn cần nhiều người tải và nhiều đánh giá từ người dùng.
 
 👉 Mục tiêu là tìm ra:
 Yếu tố nào ảnh hưởng mạnh nhất đến lượt tải
 Ứng dụng thành công thường có đặc điểm gì về đánh giá và độ phổ biến
 Mối quan hệ giữa “độ tin cậy (Reviews)” và “chất lượng (Rating)” với “hiệu suất (Installs)”
 
+1. Yếu tố ảnh hưởng mạnh nhất đến lượt tải (Installs)
+
+Khi so sánh tương quan:
+
+Rating ↔ Installs
+Reviews ↔ Installs
+
+ta thấy:
+
+Correlation của Reviews đa số rất cao:
+EDUCATION = 0.98
+MAPS_AND_NAVIGATION = 0.95
+EVENTS = 0.92
+BEAUTY = 0.90
+SOCIAL = 0.86
+
+Trong khi:
+
+Correlation của Rating khá thấp:
+nhiều category chỉ khoảng:
+0.01
+0.05
+0.08
+0.11
+
+=> Điều này cho thấy:
+
+Reviews ảnh hưởng mạnh đến lượt tải hơn Rating.
+
+Nguyên nhân:
+
+Ứng dụng có nhiều Reviews thường:
+nổi tiếng hơn
+được nhiều người biết đến
+tạo cảm giác đáng tin cậy
+Người dùng thường nhìn số lượng đánh giá trước khi tải app.
+2. Ứng dụng thành công thường có đặc điểm gì?
+
+Dựa trên bảng Success, các category thành công nhất gồm:
+
+Category	Đặc điểm
+SOCIAL	cực nhiều người dùng
+COMMUNICATION	lượt tải rất cao
+GAME	Reviews lớn
+VIDEO_PLAYERS	phổ biến toàn cầu
+
+Điểm chung:
+
+Đặc điểm của app thành công
+(1) Installs rất cao
+
+Ví dụ:
+
+COMMUNICATION ≈ 99 triệu installs
+SOCIAL ≈ 54 triệu installs
+
+=> độ phổ biến lớn.
+
+(2) Reviews rất nhiều
+
+Ví dụ:
+
+COMMUNICATION ≈ 2.4 triệu reviews
+SOCIAL ≈ 2.3 triệu reviews
+
+=> mức độ tương tác người dùng cao.
+
+(3) Rating khá tốt nhưng không cần quá cao
+
+Phần lớn app thành công có Rating:
+
+khoảng 4.0 ~ 4.3
+
+Không cần:
+
+4.8
+4.9
+
+=> Điều quan trọng hơn là:
+
+nhiều người dùng
+nhiều reviews
+độ phổ biến cao
+3. Mối quan hệ giữa Reviews, Rating và Installs
+(1) Reviews và Installs có quan hệ mạnh
+
+Phần lớn category có correlation cao:
+
+0.7 ~ 0.9
+
+=> Khi Reviews tăng thì Installs cũng tăng mạnh.
+
+Điều này chứng tỏ:
+
+Độ tin cậy của cộng đồng ảnh hưởng lớn đến hiệu suất ứng dụng.
+
+(2) Rating và Installs có quan hệ yếu
+
+Nhiều category chỉ:
+
+0.01
+0.05
+0.1
+
+=> Rating cao chưa chắc có nhiều lượt tải.
+
+Ví dụ:
+
+EVENTS có Rating rất cao (4.44)
+nhưng Installs thấp
+
+Ngược lại:
+
+SOCIAL chỉ 4.26
+nhưng lượt tải cực lớn
+
+=> Người dùng quan tâm:
+
+mức độ phổ biến
+số người sử dụng
+hơn là chỉ nhìn Rating.
+4. Kết luận tổng thể
+
+Từ dữ liệu Google Play Store có thể kết luận:
+
+Yếu tố ảnh hưởng mạnh nhất đến lượt tải ứng dụng là Reviews.
+
+Ngoài ra:
+
+Ứng dụng thành công thường có:
+
+nhiều lượt tải
+nhiều Reviews
+Rating ổn định khoảng 4.0 trở lên
+
+Trong khi:
+
+Rating cao không đảm bảo ứng dụng sẽ phổ biến.
 
 
 
