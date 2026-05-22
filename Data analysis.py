@@ -53,8 +53,10 @@ data_Category=df.groupby("Category").agg({
     "Size":"mean",
     "Price":"mean"
 }).round(2)
+data_Category = data_Category.sort_values(by="Installs", ascending=False)
 
-data_Category.to_csv("Overview_of_the_application_market_data.csv")
+data_Category.to_csv("Overview_of_the_application_market_data.csv", encoding="utf-8-sig")
+#data_Category.to_csv("Overview_of_the_application_market_data.csv")
 
 #kiểm tra dữ liệu
 #print(data_Category)
@@ -75,43 +77,34 @@ df_result.to_csv("top_category_result.csv", index=False, encoding="utf-8-sig")
 
 
 #PHÂN TÍCH MỐI QUAN HỆ Reviews và Installs
-corr_by_category = df.groupby("Category")[["Reviews", "Installs"]].corr().iloc[0::2, -1].round(2)
-corr_by_category.to_csv("Correlation_Reviews_Installs.csv", index=True, encoding="utf-8-sig")
+corr_by_category = (
+    df.groupby("Category")
+      .apply(lambda x: x["Reviews"].corr(x["Installs"]))
+      .round(2)
+)
+corr_by_category = corr_by_category.sort_values(ascending=False)
+corr_by_category.to_csv(
+    "Correlation_Reviews_Installs.csv",
+    header=["Correlation"],
+    encoding="utf-8-sig"
+)
+
+
+#corr_by_category = df.groupby("Category")[["Reviews", "Installs"]].corr().iloc[0::2, -1].round(2)
+#df_sorted = df.sort_values(by="Reviews", ascending=False)
+#corr_by_category.to_csv("Correlation_Reviews_Installs.csv", index=True, encoding="utf-8-sig")
 # Rating và Installs
-corr_by_category = df.groupby("Category")[["Rating", "Installs"]].corr().iloc[0::2, -1].round(2)
-corr_by_category.to_csv("Correlation_Rating_Installs.csv", index=True, encoding="utf-8-sig")
-
-
-# ======================
-# Tạo điểm thành công
-# ======================
-
-# công thức đơn giản:
-# Success = Rating × Reviews × Installs
-
-df["Success"] = (
-    df["Rating"] *
-    df["Reviews"] *
-    df["Installs"]
+corr_by_category = (
+    df.groupby("Category")
+      .apply(lambda x: x["Rating"].corr(x["Installs"]))
+      .round(2)
+)
+corr_by_category = corr_by_category.sort_values(ascending=False)
+corr_by_category.to_csv(
+    "Correlation_Rating_Installs.csv",
+    header=["Correlation"],
+    encoding="utf-8-sig"
 )
 
-# ======================
-# Phân tích theo Category
-# ======================
 
-result = df.groupby("Category").agg({
-    "Rating": "mean",
-    "Reviews": "mean",
-    "Installs": "mean",
-    "Success": "mean",
-    "Size": "mean"
-}).round(2)
 
-# sắp xếp từ cao xuống thấp
-result = result.sort_values(
-    by="Success",
-    ascending=False
-)
-
-#print(result)
-result.to_csv("result_data.csv")
