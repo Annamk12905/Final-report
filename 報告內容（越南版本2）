@@ -1,87 +1,214 @@
 BÁO CÁO PHÂN TÍCH DỮ LIỆU THỊ TRƯỜNG ỨNG DỤNG DI ĐỘNG
-
 I. ĐỘNG LỰC NGHIÊN CỨU (Research Motivation)
 
-- Định hướng nghề nghiệp:
-Xuất phát từ mong muốn phát triển bản thân theo hướng phát triển ứng dụng di động (App Development) trong tương lai.
+Nghiên cứu này được thực hiện nhằm phân tích và hiểu rõ cấu trúc thị trường ứng dụng di động thông qua dữ liệu thực tế. Động lực nghiên cứu bao gồm:
 
-- Thấu hiểu thị trường:
-Thông qua việc phân tích chuyên sâu thị trường ứng dụng, người nghiên cứu có thể nắm bắt rõ ràng các xu hướng hiện hành, nhu cầu của người dùng, cũng như các đặc tính cốt lõi của một ứng dụng thành công.
+1. Định hướng nghề nghiệp
 
-- Nâng cao kỹ năng công nghệ:
-Đây đồng thời là cơ hội thực tiễn để học hỏi, rèn luyện và áp dụng ngôn ngữ lập trình Python vào quy trình phân tích dữ liệu thực tế (Data Analysis).
+Nghiên cứu xuất phát từ định hướng phát triển trong lĩnh vực phát triển ứng dụng di động (App Development), với mục tiêu hiểu rõ hành vi thị trường và các yếu tố ảnh hưởng đến sự thành công của một ứng dụng.
+
+2. Thấu hiểu thị trường
+
+Việc phân tích dữ liệu giúp xác định các xu hướng chính, mức độ cạnh tranh giữa các danh mục ứng dụng, cũng như hành vi sử dụng của người dùng trong hệ sinh thái di động.
+
+3. Nâng cao kỹ năng phân tích dữ liệu
+
+Nghiên cứu đồng thời giúp rèn luyện kỹ năng sử dụng Python và thư viện Pandas trong xử lý, phân tích và trực quan hóa dữ liệu thực tế.
 
 II. CÂU HỎI NGHIÊN CỨU (Research Questions)
+1.Những danh mục ứng dụng nào phổ biến nhất và có nhu cầu người dùng cao nhất dựa trên Installs?
+2.Mức độ cạnh tranh giữa các danh mục ứng dụng được phân bố như thế nào?
+3.Các ứng dụng thành công có đặc điểm chung gì dựa trên Rating, Reviews, Price và Size?
+4.Mối quan hệ giữa Reviews, Rating và Installs phản ánh điều gì về hành vi người dùng?
+5.Từ dữ liệu hiện tại, xu hướng phát triển của thị trường ứng dụng di động là gì và chiến lược nào phù hợp cho phát triển ứng dụng mới?
+III. PHƯƠNG PHÁP NGHIÊN CỨU (Methodology)
 
-Nghiên cứu này tập trung làm rõ 5 câu hỏi lớn sau:
-1.Danh mục ứng dụng (Category) nào đang phổ biến và thu hút nhiều nhà phát triển nhất?
-2.Danh mục ứng dụng nào sở hữu lượng tải xuống (Installs) cao nhất thị trường?
-3.Các ứng dụng thành công thường sở hữu những đặc điểm kỹ thuật nào? (Xét trên các khía cạnh: Điểm đánh giá - Rating, Số lượng bình luận - Reviews, Giá cả - Price, Phân loại - Type: Miễn phí/Trả phí, và Dung lượng - Size).
-4.Hành vi và phản hồi của người dùng ảnh hưởng như thế nào đến sự thành công của một ứng dụng?
-- Mức độ tương quan giữa Số lượng bình luận (Reviews) và Lượng tải xuống (Installs) ra sao?
-- Điểm đánh giá (Rating) có phải là yếu tố quyết định lượng tải xuống hay không?
-5.Xu hướng phát triển của thị trường ứng dụng di động trong tương lai là gì?
+Nghiên cứu được thực hiện theo quy trình phân tích dữ liệu tiêu chuẩn:
+
+- Nguồn dữ liệu: Kaggle Google Play Store Dataset
+- Công cụ: Python (Pandas, NumPy)
+- Quy trình xử lý:
+Làm sạch dữ liệu (Installs, Price, Size)
+Chuẩn hóa định dạng số
+Thống kê mô tả theo Category
+Phân tích tương quan Pearson
+Biến phân tích chính: Installs,Reviews,Rating
+IV. PHÂN TÍCH DỮ LIỆU
+1. THỐNG KÊ MÔ TẢ THEO CATEGORY (RQ1)
+1.1 Nhóm quy mô lớn (Mass Market Apps)
+
+Các danh mục COMMUNICATION (~99M installs), SOCIAL (~54M), PRODUCTIVITY (~40M), VIDEO_PLAYERS (~38M), GAME (~31M), PHOTOGRAPHY (~31M) chiếm tỷ trọng cao nhất.
+
+Giải thích (WHY analysis)
+
+Nhóm này phục vụ các nhu cầu cơ bản và lặp lại hàng ngày như giao tiếp, giải trí và làm việc. Do đó, chúng có tệp người dùng rất lớn và mức độ sử dụng cao.
+
+Kết luận
+
+Nhóm này phản ánh các nhu cầu cốt lõi của người dùng, đóng vai trò dẫn dắt thị trường.
+
+1.2 Nhóm trung bình
+
+TRAVEL_AND_LOCAL (~30M), ENTERTAINMENT (~19M), TOOLS (~15M), SHOPPING (~13M), BOOKS_AND_REFERENCE (~10M)
+
+Giải thích
+
+Nhóm này phục vụ nhu cầu theo tình huống (situational needs), không mang tính bắt buộc hàng ngày.
+
+Kết luận
+
+Đây là nhóm có mức sử dụng ổn định nhưng không chi phối toàn bộ thị trường.
+
+1.3 Nhóm ngách
+
+FINANCE (~2.7M), HEALTH_AND_FITNESS (~5.3M), MEDICAL (~0.15M), EVENTS (~0.35M)
+
+Giải thích
+
+Đây là các ứng dụng phục vụ nhu cầu chuyên biệt, chỉ một nhóm người dùng nhỏ cần đến.
+
+Kết luận
+
+Đây là nhóm niche market, quy mô nhỏ nhưng giá trị chuyên sâu.
+
+2. PHÂN TÍCH CẠNH TRANH (RQ2)
+2.1 Thị trường bão hòa (Saturated Market)
+
+Các danh mục GAME (~31M), SOCIAL (~54M), COMMUNICATION (~99M), ENTERTAINMENT (~19M) được xem là thị trường bão hòa.
+
+WHY analysis
+Thị trường có số lượng ứng dụng rất lớn và tương đồng chức năng cao
+Tăng trưởng chủ yếu đến từ việc cạnh tranh và thay thế người dùng giữa các ứng dụng
+Hiệu ứng mạng khiến các nền tảng lớn chiếm ưu thế
+Kết luận
+
+Nhóm này có quy mô lớn nhưng đã đạt trạng thái bão hòa, khiến mức độ cạnh tranh rất cao.
+
+2.2 Cạnh tranh trung bình
+
+PRODUCTIVITY, TOOLS, EDUCATION, MAPS_AND_NAVIGATION
+
+Giải thích
+
+Các danh mục này có nhu cầu ổn định và phân khúc rõ ràng theo chức năng.
+
+Kết luận
+
+Đây là nhóm có tiềm năng phát triển dài hạn.
+
+2.3 Cạnh tranh thấp
+
+FINANCE (~2.7M), HEALTH (~5.3M), MEDICAL (~0.15M), EVENTS (~0.35M)
+
+Giải thích
+
+Thị trường nhỏ, ít đối thủ trực tiếp nhưng phụ thuộc nhu cầu đặc thù.
+
+Kết luận
+
+Nhóm niche, ít cạnh tranh nhưng khó mở rộng quy mô lớn.
+
+3. ĐẶC ĐIỂM ỨNG DỤNG THÀNH CÔNG (RQ3)
+3.1 Free apps chiếm ưu thế
+Giải thích
+
+Ứng dụng miễn phí có rào cản gia nhập thấp, giúp tăng trưởng người dùng nhanh.
+
+Kết luận
+
+Mô hình miễn phí là yếu tố quan trọng thúc đẩy quy mô thị trường.
+
+3.2 Reviews tăng theo Installs
+
+Các nhóm như EDUCATION, MAPS, WEATHER thể hiện correlation cao giữa Reviews và Installs.
+
+WHY analysis
+
+Người dùng có xu hướng đánh giá khi sử dụng ứng dụng thường xuyên, đặc biệt trong các ứng dụng mang tính thực tiễn.
+
+Kết luận
+
+Reviews phản ánh mức độ tương tác thay vì chất lượng tuyệt đối.
+
+3.3 Rating không quyết định Installs
+
+SOCIAL (~0.01), COMMUNICATION (~0.08), GAME (~0.12)
+
+WHY analysis
+
+Người dùng thường dựa vào nhu cầu và mức độ phổ biến thay vì rating khi quyết định cài đặt.
+
+Kết luận
+
+Rating chủ yếu phản ánh độ tin cậy hơn là yếu tố tăng trưởng.
+
+4. HÀNH VI NGƯỜI DÙNG (RQ4)
+4.1 Reviews – Installs
+
+Correlation mạnh:
+
+EDUCATION (0.98)
+MAPS (0.95)
+WEATHER (0.93)
+Giải thích
+
+Ứng dụng càng được sử dụng nhiều thì mức độ phản hồi càng tăng.
+
+Kết luận
+
+Reviews phản ánh mức độ tương tác của người dùng.
+
+4.2 Rating – Installs
+
+Correlation yếu:
+
+SOCIAL (0.01)
+COMMUNICATION (0.08)
+GAME (0.12)
+Giải thích
+
+Rating không phải yếu tố chính trong quyết định cài đặt.
+
+Kết luận
+
+Installs phụ thuộc chủ yếu vào nhu cầu và tính phổ biến.
+
+5. XU HƯỚNG THỊ TRƯỜNG & CHIẾN LƯỢC (RQ5)
+5.1 Xu hướng thị trường
+SOCIAL, GAME: quy mô lớn nhưng bão hòa
+EDUCATION, PRODUCTIVITY: tăng trưởng ổn định
+FINANCE, HEALTH: niche nhưng tiềm năng dài hạn
+Kết luận
+
+Thị trường đang chuyển từ giải trí đại chúng sang ứng dụng theo nhu cầu cá nhân hóa và tiện ích.
+
+5.2 Chiến lược phát triển ứng dụng
+Nên ưu tiên:
+EDUCATION (subscription model)
+PRODUCTIVITY (freemium model)
+TOOLS (utility-based apps)
+Tránh cạnh tranh trực tiếp:
+SOCIAL
+GAME
+WHY analysis
+
+Các nhóm này đã bão hòa, chi phí cạnh tranh cao và phụ thuộc mạnh vào hiệu ứng mạng.
+
+V. KẾT LUẬN CHUNG
+
+Phân tích dữ liệu cho thấy thị trường ứng dụng di động được phân hóa rõ ràng theo nhu cầu sử dụng. Các ứng dụng phục vụ nhu cầu hằng ngày chiếm ưu thế về quy mô, trong khi các nhóm chuyên biệt có tiềm năng nhưng giới hạn về người dùng.
+
+Kết quả nghiên cứu cho thấy hành vi người dùng chủ yếu được dẫn dắt bởi nhu cầu sử dụng thực tế hơn là đánh giá (rating). Do đó, chiến lược phát triển ứng dụng hiệu quả nên tập trung vào giá trị sử dụng dài hạn, mức độ tiện ích và khả năng giữ chân người dùng.
+
+VI. CẢM NGHĨ（Research Reflection）
+
+Trong quá trình thực hiện nghiên cứu, tôi đã học được cách sử dụng Python (Pandas) để xử lý và phân tích dữ liệu, bao gồm làm sạch dữ liệu, thống kê mô tả và phân tích tương quan. Tôi cũng hiểu rõ hơn cách chuyển dữ liệu thành insight có ý nghĩa phục vụ câu hỏi nghiên cứu.
+
+Tôi gặp một số khó khăn như chưa quen xử lý dữ liệu, nội dung phân tích ban đầu quá rộng và chưa bám sát trọng tâm, đồng thời thời gian thực hiện còn hạn chế.
+
+Để khắc phục, tôi đã tìm hiểu thêm tài liệu về Pandas, thu hẹp phạm vi phân tích vào các biến chính (Installs, Reviews, Rating) và phân chia thời gian hợp lý theo từng giai đoạn làm việc.
 
 
-II. PHƯƠNG PHÁP NGHIÊN CỨU (Research Methodology)
-
-Nghiên cứu áp dụng quy trình phân tích dữ liệu khoa học bao gồm các bước:
-
-1.Nguồn dữ liệu: Sử dụng bộ dữ liệu thị trường ứng dụng di động được thu thập từ nền tảng Kaggle.
-2.Công cụ phân tích: Sử dụng ngôn ngữ lập trình Python và thư viện Pandas để làm sạch, xử lý và thống kê dữ liệu.
-3.Phương pháp xử lý:
-- Tiền xử lý (Data Cleaning): Chuyển đổi các trường dữ liệu định tính về định lượng (loại bỏ các ký tự đặc biệt như +, ,, $ ở các cột Installs, Price để đưa về dạng số).
-- Thống kê mô tả: Phân loại dữ liệu theo Danh mục (Category) để tính toán các giá trị trung bình (mean) của các chỉ số: Rating, Installs, Reviews, Size, Price.
-- Phân tích tương quan (Correlation Analysis): Sử dụng hệ số tương quan để đánh giá mối quan hệ giữa các biến số.
-
-IV. KẾT QUẢ PHÂN TÍCH VÀ THẢO LUẬN (Findings & Discussion)
-1. Tóm tắt xu hướng thị trường theo danh mục ứng dụng
-Qua số liệu thống kê, thị trường ứng dụng hiện nay được phân hóa rõ rệt thành 4 nhóm chính:
-
-A.Nhóm ứng dụng Thống trị (Chủ đạo): Bao gồm COMMUNICATION (Thông tin liên lạc), SOCIAL (Mạng xã hội), PRODUCTIVITY (Năng suất), VIDEO_PLAYERS (Trình phát video), GAME (Trò chơi), PHOTOGRAPHY (Nhiếp ảnh).
-  -Đặc điểm: Lượng tải xuống cực kỳ khổng lồ. Phục vụ nhu cầu thiết yếu hàng ngày, tần suất sử dụng cao, dễ tạo thành thói quen. Đặc biệt, nhóm Thông tin liên lạc và Mạng xã hội sở hữu "hiệu ứng mạng lưới" (Network Effect) mạnh mẽ, tạo đà tăng trưởng tự nhiên rất lớn.
-
-B.Nhóm ứng dụng Giải trí: Bao gồm GAME, VIDEO_PLAYERS, ENTERTAINMENT, PHOTOGRAPHY.
-  -Đặc điểm: Lượng tải xuống rất cao nhưng có độ nhạy cảm lớn với các xu hướng ngắn hạn. Nhóm này có tiềm năng bùng nổ mạnh nhưng đi kèm áp lực cạnh tranh cực kỳ khốc liệt.
-
-C.Nhóm ứng dụng Công cụ & Hiệu suất: Bao gồm PRODUCTIVITY, TOOLS, MAPS_AND_NAVIGATION (Bản đồ & Điều hướng), WEATHER (Thời tiết).
-  -Đặc điểm: Thỏa mãn các nhu cầu thực tế trong công việc và học tập. Lượng tải xuống và giữ chân người dùng có độ ổn định cao, ít bị ảnh hưởng bởi trào lưu hay thị hiếu nhất thời.
-
-D.Nhóm ứng dụng Thị trường ngách (Niche Market): Bao gồm MEDICAL (Y tế), EVENTS (Sự kiện), BEAUTY (Làm đẹp), AUTO_AND_VEHICLES (Ô tô & Xe cộ).
-  -Đặc điểm: Lượng tải xuống thấp hơn rõ rệt do chỉ phục vụ một nhóm đối tượng khách hàng đặc thù. Quy mô người dùng nhỏ dẫn đến việc mở rộng thị trường gặp nhiều thách thức.
-
-
-2. Định hướng phát triển chiến lược từ danh mục
- -Ưu tiên phát triển: Communication, Social (Nhu cầu hàng ngày + Hiệu ứng mạng lưới).
- -Tiềm năng ổn định: Productivity, Tools (Giá trị thực dụng cao, vòng đời sản phẩm dài).
- -Cân nhắc rủi ro: Game, Entertainment (Tải xuống cao nhưng vòng đời ngắn, cạnh tranh gắt gao)
-
-A. Mối quan hệ giữa Số lượng bình luận (Reviews) và Lượng tải xuống (Installs)
-Số lượng Reviews và Lượng tải xuống có mối liên hệ mật thiết, tuy nhiên mức độ ảnh hưởng sẽ thay đổi tùy theo từng danh mục ứng dụng cụ thể:
-- Nhóm Tương quan Mạnh: Xuất hiện rõ rệt ở các danh mục như EDUCATION (Giáo dục), MAPS & NAVIGATION, WEATHER. Tại đây, lượt tải xuống và lượt bình luận tăng trưởng đồng bộ theo một tỷ lệ rất ổn định (Ví dụ: Trung bình cứ mỗi 5.6 triệu lượt tải xuống sẽ tương ứng với khoảng 194K – 255K lượt bình luận). Hầu như không xuất hiện tình trạng "App có lượt tải cực cao nhưng lượt đánh giá quá thấp".
-- Nhóm Tương quan Yếu: Điển hình là FINANCE (Tài chính), HEALTH & FITNESS (Sức khỏe & Thể hình), BOOKS & REFERENCE (Sách & Tra cứu). Đối với các nhóm này, lượt tải xuống phụ thuộc hoàn toàn vào nhu cầu cá nhân hoặc tình huống thực tế của người dùng. Một ứng dụng Tài chính hoặc Sách có thể có lượt tải cao để sử dụng nhưng người dùng lại rất ít khi để lại bình luận. Reviews ở đây không phản ánh chính xác quy mô cài đặt thực tế.
-
-B. Mối quan hệ giữa Điểm đánh giá (Rating) và Lượng tải xuống (Installs)
-Trái với suy nghĩ thông thường rằng "Điểm số càng cao thì tải càng nhiều", dữ liệu cho thấy tác động của Rating có sự phân hóa phức tạp:Mức độ tác động rõ rệt (Hệ số tương quan $\ge 0.7$ nếu xét trên tập dữ liệu phụ thuộc Reviews): Đối với các danh mục như AUTO, BEAUTY, BUSINESS, COMICS, DATING, FOOD, SHOPPING, SOCIAL... Những ngành hàng dịch vụ này đòi hỏi sự tin tưởng ban đầu cao, người dùng có xu hướng nhìn vào điểm số và số lượng bình luận tích cực trước khi quyết định tải.Mức độ tác động trung bình ($0.3 - 0.7$): Ở các nhóm ART_AND_DESIGN, COMMUNICATION, GAME, ENTERTAINMENT, FAMILY, PRODUCTIVITY, TOOLS, NEWS... Điểm số có ảnh hưởng nhưng các yếu tố về tính giải trí hoặc độ tiện dụng mới là động lực chính kích thích lượt tải.Mức độ tác động yếu ($< 0.3$): Tại danh mục HEALTH_AND_FITNESS và FINANCE, lượt tải gần như độc lập với điểm số Rating, tất cả phụ thuộc vào tính năng cốt lõi và mức độ uy tín của đơn vị phát hành sản phẩm.
-
-- Mức độ tác động rõ rệt (Hệ số tương quan $\ge 0.7$ nếu xét trên tập dữ liệu phụ thuộc Reviews): Đối với các danh mục như AUTO, BEAUTY, BUSINESS, COMICS, DATING, FOOD, SHOPPING, SOCIAL... Những ngành hàng dịch vụ này đòi hỏi sự tin tưởng ban đầu cao, người dùng có xu hướng nhìn vào điểm số và số lượng bình luận tích cực trước khi quyết định tải.
-- Mức độ tác động trung bình ($0.3 - 0.7$): Ở các nhóm ART_AND_DESIGN, COMMUNICATION, GAME, ENTERTAINMENT, FAMILY, PRODUCTIVITY, TOOLS, NEWS... Điểm số có ảnh hưởng nhưng các yếu tố về tính giải trí hoặc độ tiện dụng mới là động lực chính kích thích lượt tải.
--Mức độ tác động yếu ($< 0.3$): Tại danh mục HEALTH_AND_FITNESS và FINANCE, lượt tải gần như độc lập với điểm số Rating, tất cả phụ thuộc vào tính năng cốt lõi và mức độ uy tín của đơn vị phát hành sản phẩm.
-
-4. Mô hình cấu trúc của một Ứng dụng thành công (Đúc kết cốt lõi)
-
-- Nhu cầu thị trường & Thói quen sử dụng (Chiếm ~70% tầm quan trọng): Quyết định trực tiếp đến Lượng tải xuống (Installs). Các ứng dụng có lượt tải dẫn đầu thị trường (Communication ~99M, Social ~54M, Productivity ~40M) đều có điểm chung là tần suất sử dụng hàng ngày và người dùng chủ động cài đặt theo bản năng hoặc nhu cầu bắt buộc, không phụ thuộc vào việc quảng cáo hay điểm số cao hay thấp.Số lượng bình luận - Reviews (Chiếm ~20% tầm quan trọng): Phản ánh quy mô người dùng thực tế đang hoạt động (Active Users). Reviews tăng trưởng chứng minh ứng dụng đang có độ lan tỏa tốt. Nó là "vết tích" của hành vi sử dụng thực tế hơn là một đánh giá mang tính chủ quan.Điểm số đánh giá - Rating (Chiếm ~10% tầm quan trọng): Chỉ đóng vai trò là "Ngưỡng tin tưởng cơ bản". Phần lớn các ứng dụng dẫn đầu thị trường đều duy trì Rating ổn định ở mức $4.0 - 4.3$. Việc nâng điểm lên quá cao ($>4.5$) không giúp ứng dụng bùng nổ lượt tải nếu nó không giải quyết được bài toán nhu cầu hàng ngày của người dùng.
-- Số lượng bình luận - Reviews (Chiếm ~20% tầm quan trọng): Phản ánh quy mô người dùng thực tế đang hoạt động (Active Users). Reviews tăng trưởng chứng minh ứng dụng đang có độ lan tỏa tốt. Nó là "vết tích" của hành vi sử dụng thực tế hơn là một đánh giá mang tính chủ quan.
--Điểm số đánh giá - Rating (Chiếm ~10% tầm quan trọng): Chỉ đóng vai trò là "Ngưỡng tin tưởng cơ bản". Phần lớn các ứng dụng dẫn đầu thị trường đều duy trì Rating ổn định ở mức $4.0 - 4.3$. Việc nâng điểm lên quá cao ($>4.5$) không giúp ứng dụng bùng nổ lượt tải nếu nó không giải quyết được bài toán nhu cầu hàng ngày của người dùng.
-
-
-V. KẾT LUẬN (Conclusion)
-
-1.Danh mục dẫn dắt thị trường: GAME, TOOLS, COMMUNICATION và EDUCATION là những mảnh đất màu mỡ nhất, chứng tỏ người dùng phổ thông luôn ưu tiên hai nhu cầu lớn: Giải trí tiện lợi và Công cụ hỗ trợ thực tế.
-2.Đặc trưng kỹ thuật của App thành công: Thường vận hành theo mô hình Miễn phí (Free), duy trì điểm số Rating ổn định trên $4.2$, và có lượng Reviews tăng trưởng tỷ lệ thuận với lượng Installs. Các danh mục về Công cụ và Giao tiếp có tốc độ tăng trưởng bền vững nhất.
-3.Hành vi người dùng: Người dùng có tâm lý đám đông dựa trên cơ sở khoa học: Ưu tiên tải các ứng dụng đã có lượng bình luận lớn để giảm thiểu rủi ro. Biến số Rating và Reviews tạo thành màng lọc tâm lý giúp củng cố quyết định tải xuống.
-4.Tầm nhìn xu hướng: Mô hình ứng dụng miễn phí vẫn sẽ chiếm thế thượng phong. Các ứng dụng có thiết kế tối giản, dễ thao tác sẽ chiếm ưu thế lớn. Bên cạnh đó, các ứng dụng tích hợp AI và mảng Giáo dục (Education) sở hữu tiềm năng bùng nổ mạnh mẽ nhất trong kỷ nguyên tiếp theo.
-TỔNG KẾT: Sự thành bại của một ứng dụng di động nằm ở năng lực giải quyết nhu cầu thực tế và tần suất sử dụng trong đời sống của người dùng. Hệ thống đánh giá (Rating & Reviews) đóng vai trò là đòn bẩy tối ưu hóa độ uy tín và khả năng hiển thị, nhưng cốt lõi định đoạt lượt tải xuống (Installs) vẫn luôn là giá trị thực tiễn của sản phẩm.
 
 
 
