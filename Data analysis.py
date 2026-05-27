@@ -1,5 +1,6 @@
 import pandas as pd
 
+#HÀM SỐ ĐỔI KÍCH THƯỚC CHO APP
 def clean_size(x):
     if "M" in str(x):
         return float(x.replace("M", ""))
@@ -45,35 +46,63 @@ df["Reviews"]=pd.to_numeric(df["Reviews"], errors="coerce")
 
 #xóa dòng có dữ liệu NaN
 df = df.dropna(subset=["Category", "Rating", "Reviews", "Installs", "Price"])
-# Bắt đầu phân tích dữ liệu (tổng hợp Category)
+
+# Bắt đầu phân tích dữ liệu (tổng hợp Category)+PHÂN TÍCH SỐ APP CHO TỪNG DANH MỤC
 data_Category=df.groupby("Category").agg({
     "Installs":"mean",
+    "App":"count",
     "Rating":"mean",
     "Reviews":"mean",
     "Size":"mean",
     "Price":"mean"
 }).round(2)
+
+# Đổi tên cột cho dễ hiểu
+data_Category = data_Category.rename(columns={
+    "App": "Total_Apps"
+})
+#SẮP XẾP THEO LƯỢT TẢI VÀ T LỚN ĐẾN BÉ
 data_Category = data_Category.sort_values(by="Installs", ascending=False)
 
-data_Category.to_csv("Ques1_Overview_of_the_application_market_data.csv", encoding="utf-8-sig")
-#data_Category.to_csv("Overview_of_the_application_market_data.csv")
-
+data_Category.to_csv("Ques1_ques2_Overview_of_the_application_market_data.csv", encoding="utf-8-sig")
 #kiểm tra dữ liệu
 #print(data_Category)
 
+#ĐẶC ĐIỂM CỦA APP THÀNH CÔNG
+# Lấy 3 app có lượt tải lớn nhất
+top_apps = df.sort_values(
+    by="Installs",
+    ascending=False
+).head(10)
+
+# Chỉ lấy các cột quan trọng
+top_apps = top_apps[[
+    "App",
+    "Category",
+    "Installs",
+    "Rating",
+    "Reviews",
+    "Price",
+
+]]
+
+# Hiển thị kết quả
+top_apps.to_csv("Ques3_top_10_app.csv", encoding="utf-8-sig")
 
 
 
 
-top_result=[]  #Lặp qua từng cột ["Installs", "Rating", "Reviews", "Size", "Price"] trong data_Category
-for col in data_Category.columns:
 
-        top_category = data_Category[col].idxmax()                   #tìm tên hàng (Category) có giá trị lớn nhất
-        top_value = data_Category[col].max()                         #lấy giá trị lớn nhất trong cột
-        top_result.append([col,top_category, top_value])
+#top_result=[]  #Lặp qua từng cột ["Installs", "Rating", "Reviews", "Size", "Price"] trong data_Category
+#for col in data_Category.columns:
 
-df_result = pd.DataFrame(top_result, columns=["指標", "最高類別", "最大值"])
-df_result.to_csv("top_category_result.csv", index=False, encoding="utf-8-sig")
+#       top_category = data_Category[col].idxmax()                   #tìm tên hàng (Category) có giá trị lớn nhất
+#        top_value = data_Category[col].max()                         #lấy giá trị lớn nhất trong cột
+#       top_result.append([col,top_category, top_value])
+
+#df_result = pd.DataFrame(top_result, columns=["指標", "最高類別", "最大值"])
+#df_result.to_csv("top_category_result.csv", index=False, encoding="utf-8-sig")
+
 
 
 #PHÂN TÍCH MỐI QUAN HỆ Reviews và Installs
@@ -84,7 +113,7 @@ corr_by_category = (
 )
 corr_by_category = corr_by_category.sort_values(ascending=False)
 corr_by_category.to_csv(
-    "Correlation_Reviews_Installs.csv",
+    "Ques4_Correlation_Reviews_Installs.csv",
     header=["Correlation"],
     encoding="utf-8-sig"
 )
@@ -101,7 +130,7 @@ corr_by_category = (
 )
 corr_by_category = corr_by_category.sort_values(ascending=False)
 corr_by_category.to_csv(
-    "Correlation_Rating_Installs.csv",
+    "Ques4_Correlation_Rating_Installs.csv",
     header=["Correlation"],
     encoding="utf-8-sig"
 )
