@@ -112,38 +112,70 @@ Kết luận
 Nhóm niche, ít cạnh tranh nhưng khó mở rộng quy mô lớn.
 
 3. ĐẶC ĐIỂM ỨNG DỤNG THÀNH CÔNG (RQ3)
-3.1 Free apps chiếm ưu thế
-Giải thích
+Đặc điểm của ứng dụng thành công (RQ3)
 
-Ứng dụng miễn phí có rào cản gia nhập thấp, giúp tăng trưởng người dùng nhanh.
+Dựa trên dữ liệu các ứng dụng có hơn 1 tỷ lượt tải, có thể rút ra các đặc điểm chung của ứng dụng thành công như sau:
+
+Lượt tải rất cao (High Installs)
+Tất cả các ứng dụng trong dữ liệu đều có hơn 1 tỷ lượt tải xuống, cho thấy chúng có thị trường người dùng toàn cầu rất lớn.
+Rating khá cao (High Rating)
+Phần lớn ứng dụng có điểm đánh giá từ 4.0 đến 4.5, ví dụ:
+Instagram: 4.5
+Google Photos: 4.5
+Google Drive: 4.4
+Google: 4.4
+
+Điều này cho thấy ứng dụng thành công thường có trải nghiệm sử dụng tốt và hoạt động ổn định.
+
+Số lượng Reviews rất lớn (Large Number of Reviews)
+Nhiều ứng dụng có hàng triệu đến hàng chục triệu đánh giá:
+Facebook: 78 triệu reviews
+Instagram: 66 triệu reviews
+Skype: 10 triệu reviews
+
+Điều này thể hiện mức độ tương tác cao và độ phổ biến mạnh trên thị trường.
+
+Đều là ứng dụng miễn phí (Free Apps)
+Tất cả ứng dụng trong dữ liệu đều có giá bằng 0.
+
+→ Ứng dụng miễn phí dễ tiếp cận người dùng hơn và giúp tăng nhanh số lượt tải.
+
+Phục vụ nhu cầu hằng ngày (Daily-life Utility)
+Các ứng dụng thành công chủ yếu thuộc các nhóm:
+SOCIAL
+COMMUNICATION
+PRODUCTIVITY
+TOOLS
+PHOTOGRAPHY
+
+Đây đều là những nhóm ứng dụng được sử dụng thường xuyên trong cuộc sống hằng ngày.
+
+Được phát triển bởi các công ty công nghệ lớn
+Nhiều ứng dụng đến từ các công ty lớn như:
+Meta (Facebook, Instagram)
+Google (Google Drive, Google Photos)
+
+Các công ty lớn thường có:
+
+Công nghệ ổn định
+Độ tin cậy cao
+Khả năng quảng bá mạnh
+Hệ sinh thái người dùng lớn
+
+→ Vì vậy dễ đạt được thành công trên thị trường.
 
 Kết luận
 
-Mô hình miễn phí là yếu tố quan trọng thúc đẩy quy mô thị trường.
+Một ứng dụng thành công thường có các đặc điểm:
 
-3.2 Reviews tăng theo Installs
+Miễn phí
+Rating cao
+Nhiều lượt đánh giá
+Phục vụ nhu cầu hằng ngày
+Dễ sử dụng
+Có sự hỗ trợ từ công ty công nghệ lớn
 
-Các nhóm như EDUCATION, MAPS, WEATHER thể hiện correlation cao giữa Reviews và Installs.
-
-WHY analysis
-
-Người dùng có xu hướng đánh giá khi sử dụng ứng dụng thường xuyên, đặc biệt trong các ứng dụng mang tính thực tiễn.
-
-Kết luận
-
-Reviews phản ánh mức độ tương tác thay vì chất lượng tuyệt đối.
-
-3.3 Rating không quyết định Installs
-
-SOCIAL (~0.01), COMMUNICATION (~0.08), GAME (~0.12)
-
-WHY analysis
-
-Người dùng thường dựa vào nhu cầu và mức độ phổ biến thay vì rating khi quyết định cài đặt.
-
-Kết luận
-
-Rating chủ yếu phản ánh độ tin cậy hơn là yếu tố tăng trưởng.
+Những yếu tố này giúp ứng dụng tăng khả năng cạnh tranh và thu hút nhiều người dùng hơn.
 
 4. HÀNH VI NGƯỜI DÙNG (RQ4)
 4.1 Reviews – Installs Correlation mạnh
