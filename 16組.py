@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 #HÀM SỐ ĐỔI KÍCH THƯỚC CHO APP
 def clean_size(x):
     if "M" in str(x):
